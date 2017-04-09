@@ -11,7 +11,7 @@ if(countArg < 2) return error("You need giver host and port SAM\n example: ./pro
 char * buffer;
 char**list;
 int c;
-buffer = (char*)malloc(sizeof(char) * SIZEBUFFER*10);
+buffer = (char*)malloc(sizeof(char) * SIZEBUFFER);
 int msocket = InitClient(args[1],atoi(args[2]));
 printf("Connect succefully\n");
 TestConnection(&msocket);
