@@ -54,9 +54,22 @@ if((recv(socket, buffer, SIZEBUFFER-1, 0)) <=0 )error("No can read from socket")
 if(read(socket,buffer,SIZEBUFFER-1) == -1)error("No can read from socket");
 #endif
 }
+
 void 
 stopClient(int * socket)
 {
 close(*socket);
 }
+
+void
+TestConnection(int * socket)
+{
+char buffer[SIZEBUFFER];
+writeTo(*socket,"HELLO VERSION");
+readFrom(*socket,buffer);
+if( strstr(buffer,"RESULT=OK") == 0 )
+ error("Result not okey\n");
+GetVersion(buffer);
+}
+
 
