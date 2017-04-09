@@ -1,4 +1,4 @@
-#define SIZEBUFFER 1024
+#define SIZEBUFFER 2056
 void writeTo(int socket,char*msg);
 void readFrom(int socket,char*buffer);
 int InitClient(char*host,int portno);

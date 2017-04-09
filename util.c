@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include"main.h"
+
 int error(char*msg)
 {
  puts(msg);
@@ -23,9 +24,10 @@ removeNewLine(char*array)
 while(*array)
  {
   if(*array=='\n')*array='\0';
-   *array++;
+  *array++;
  }
 }
+
 char ** devideString(char * string,int * c,char ch)
 {
 *c = countChar(ch, string);
@@ -95,11 +97,8 @@ CreateSession(char*style,char*ID,char*privKey,int * socket)
 {
 char buffer[SIZEBUFFER];
 int c;
-
 //
-sprintf(buffer,"SESSION CREATE ID=%s STYLE=%s DESTINATION=%s", ID, style, privKey);
-//THIS NOT CORRECTLY( :( )
-printf("WRITE THIS: %s END\n",buffer);
+sprintf(buffer,"SESSION CREATE STYLE=%s ID=%s DESTINATION=%s", style , ID, privKey);
 writeTo(*socket,buffer);
 //
 readFrom(*socket,buffer);
