@@ -24,9 +24,6 @@ printf("Test Accept\n");
 int csocket = InitClient(args[1],atoi(args[2]));
 TestConnection(&csocket);
 _SamAccept("TEst666",&csocket);
-readFrom(csocket,buffer);
-//...
-printf("DEBUG(ACCEPT): %s\n",buffer);
 //^^^ SHITCODE ^^^
 printf("\n\nSTOP\n");
 stopClient(&csocket);

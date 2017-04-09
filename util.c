@@ -123,4 +123,7 @@ _SamAccept(char*ID,int * socket)
 char buffer[SIZEBUFFER];
 sprintf(buffer,"STREAM ACCEPT ID=%s", ID);
 writeTo(*socket,buffer);
+readFrom(*socket,buffer);
+if(strstr(buffer,"RESULT=OK") == NULL) error("Result not okey");
+printf("Accept Okey\n");
 }
