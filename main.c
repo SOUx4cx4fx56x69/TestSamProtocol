@@ -37,6 +37,6 @@ printf("\n\nSTOP\n");
 stopClient(&msocket);
 free(PRIVDEST);
 free(PUBDEST);
-free(list);
+//free(list);
 free(buffer);
 }

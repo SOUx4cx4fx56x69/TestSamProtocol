@@ -92,7 +92,7 @@ VERSION=atoi(buffer);
 free(list);
 }
 
-void
+int
 CreateSession(char*style,char*ID,char*privKey,int * socket)
 {
 char buffer[SIZEBUFFER];
@@ -103,11 +103,15 @@ writeTo(*socket,buffer);
 //
 readFrom(*socket,buffer);
 printf("(ADDING): %s\n",buffer);
-writeTo(*socket,buffer);
-readFrom(*socket,buffer);
 char**list = devideString(buffer,&c,' ');
 printf("RESULT: %s\n",list[2]);
-if(strcmp(list[2],"RESULT=OK") != 0) error("Result not okey");
+if(strcmp(list[2],"RESULT=OK") != 0) 
+{
+ if(strcmp(list[2],"RESULT=DUPLICATED_ID") != 0) error("Result not okey");
+ GenerateDest(socket);
+ free(list);
+ return CreateSession(style,ID,privKey,socket);
+}
 devideFromChar(buffer,list[3],'=');
 printf("DEBUG(PRIVKEY): %s\n",buffer);
 free(list);

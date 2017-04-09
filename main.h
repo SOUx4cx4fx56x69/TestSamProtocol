@@ -10,7 +10,7 @@ void devideFromChar(char*array,char*string,char ch);
 void TestConnection(int * socket);
 void GetVersion(char*buffer);
 void GenerateDest(int * socket);
-void CreateSession(char*style,char*ID,char*privKey,int * socket);
+int CreateSession(char*style,char*ID,char*privKey,int * socket);
 void _SamAccept(char*ID,int * socket);
 // 
 extern void free (void *__ptr) __THROW;
