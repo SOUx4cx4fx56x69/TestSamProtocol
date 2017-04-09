@@ -1,6 +1,4 @@
 #include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
 #include"main.h"
 int error(char*msg)
 {
@@ -18,32 +16,25 @@ while(*string)
 return tmp;
 }
 
-int devideString(char * string,char ** list,char ch)
+char ** devideString(char * string,int * c,char ch)
 {
-/*auto*/ int c = countChar(ch, string);
-list= (char**) calloc(sizeof(char*) , c+1);
-for(int i = 0; i != c+1; i++)
-{
+*c = countChar(ch, string);
+char ** list= (char**) calloc(sizeof(char*) , *c+1);
+for(int i = 0; i != *c+1; i++)
  list[i] = (char*) calloc(SIZEBUFFER,sizeof(char));
-}
+//
 int tmp=0;
 int tmp_1=0;
 char tmpb[SIZEBUFFER];
+//
 while(*string)
 {
  while(*string!=ch && *string) tmpb[tmp_1++]=*string++;
  tmpb[tmp_1++]='\0';
- strcpy(list[tmp],tmpb);
+ memcpy(list[tmp++],tmpb,tmp_1);
  tmp_1=0; // for array
- printf("DEBUG: %s\n",list[tmp++]);
  if(*string) *string++;
 }
-printf("reversed\n");
-for (int zzz=c;zzz--;)
- printf("%s\n",list[zzz]);
-
-printf("end\n");
-
-return c;
+return list;
 }
 
