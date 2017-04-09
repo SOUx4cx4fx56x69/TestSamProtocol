@@ -121,7 +121,6 @@ void
 _SamAccept(char*ID,int * socket)
 {
 char buffer[SIZEBUFFER];
-writeTo(*socket,"STREAM ACCEPT");
-sprintf(buffer,"ID=%s", ID);
+sprintf(buffer,"STREAM ACCEPT ID=%s", ID);
 writeTo(*socket,buffer);
 }

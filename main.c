@@ -19,21 +19,17 @@ printf("VERSION: %d\n",VERSION);
 GenerateDest(&msocket);
 //printf("PUBLIC: %s\nPRIVATE: %s\n",PUBDEST,PRIVDEST);
 CreateSession("STREAM","TEst666",PRIVDEST,&msocket);
-/*
+//...
 printf("Test Accept\n");
 int csocket = InitClient(args[1],atoi(args[2]));
 TestConnection(&csocket);
-_SamAccept("TE",&csocket);
+_SamAccept("TEst666",&csocket);
 readFrom(csocket,buffer);
-//
+//...
 printf("DEBUG(ACCEPT): %s\n",buffer);
-readFrom(csocket,buffer);
-printf("DEBUG(ACCEPT): %s\n",buffer);
+//^^^ SHITCODE ^^^
 printf("\n\nSTOP\n");
 stopClient(&csocket);
-*/
-//sleep(10);
-printf("\n\nSTOP\n");
 stopClient(&msocket);
 free(PRIVDEST);
 free(PUBDEST);
