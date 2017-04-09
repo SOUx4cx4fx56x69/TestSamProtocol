@@ -42,8 +42,8 @@ strcpy(PUBDEST,buffer);
 //...
 //printf("PUBLIC: %s\nPRIVATE: %s\n",PUBDEST,PRIVDEST);
 sprintf(buffer,"SESSION CREATE\nSTYLE=STREAM\nID=TESTING\nDESTINATION=%s\n",PRIVDEST);
-if(strstr(buffer,PRIVDEST) == NULL) return error("lOl");
-printf("DEBUG: writeTo server %s\n",buffer);
+//if(strstr(buffer,PRIVDEST) == NULL) return error("lOl");
+printf("DEBUG: writeTo server:%s\n",buffer);
 writeTo(msocket,buffer);
 readFrom(msocket,buffer);
 printf("DEBUG(ANSWER): %s\n",buffer);
