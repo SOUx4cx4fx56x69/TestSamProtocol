@@ -4,6 +4,8 @@
 int error(char*msg)
 {
  puts(msg);
+ free(PRIVDEST);
+ free(PUBDEST);
  exit(-1);
 }
 

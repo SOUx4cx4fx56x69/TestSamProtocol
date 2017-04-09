@@ -8,9 +8,11 @@ char * PUBDEST;
 int main(int countArg,char**args)
 {
 if(countArg < 2) return error("You need giver host and port SAM\n example: ./prorgramm localhost 7656");
+
 char * buffer;
 char**list;
 int c;
+//...
 buffer = (char*)malloc(sizeof(char) * SIZEBUFFER);
 int msocket = InitClient(args[1],atoi(args[2]));
 printf("Connect succefully\n");
